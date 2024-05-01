@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import MobileNav from '../MobileNav/MobileNav'
+import { BrowserRouter } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
@@ -9,7 +11,7 @@ const Navbar = () => {
         setOpenMenu(!openMenu);
     };
   return (
-    <>
+    <BrowserRouter>
     <MobileNav isOpen={openMenu} toggleMenu={toggleMenu}/>
 
     <nav className='nav-wrapper'>
@@ -17,16 +19,16 @@ const Navbar = () => {
         <img className='logo' src={require('../../assets/WlogoNobackground.png')} alt='logo'/>
             <ul>
                 <li>
-                    <a href="" className='menu-item'>Home</a>
+                    <Link to="#" className='menu-item' smooth>Home</Link>
                 </li>
                 <li>
-                    <a href="" className='menu-item'>Skills</a>
+                    <Link to="#skills" className='menu-item' smooth>Skills</Link>
                 </li>
                 <li>
-                    <a href="" className='menu-item'>Work Experience</a>
+                    <Link to="#workexperience" className='menu-item' smooth>Work Experience</Link>
                 </li>
                 <li>
-                    <a href="" className='menu-item'>Contact Me</a>
+                    <Link to="#contactme" className='menu-item' smooth>Contact Me</Link>
                 </li>
                 <button className='contact-btn' onClick={() => {}}>
                     Hire Me
@@ -44,7 +46,7 @@ const Navbar = () => {
             </button>
         </div>
     </nav>
-    </>
+    </BrowserRouter>
   )
 }
 
